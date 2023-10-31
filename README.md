@@ -1,7 +1,3 @@
-# E-PERPUS
- Aplikasi perpustakaan sederhana ini dibuat menggunakan Template dari AdminLTE.io dan Menggunakan bahasa pemograman PHP MySQLi. <br> <br>
- Aplikasi ini bebas untuk dikembangkan lagi atau untuk bahan pembelajaran kalian bagi yang mau membuat aplikasi perpustakaan, mungkin bisa mengambil contoh dari aplikasi ini
-
 # Akun Administrator
 Username : admin
 <br>
@@ -11,7 +7,7 @@ Password : admin
 <ul>
      <li> Ekstrak arsip / file zip yang telah didownload </li>
      <li> Buka folder "e-perpus-main" </li>
-     <li> Pindahkan semua file dan folder di dalam folder "e-perpus-main" ke dalam folder Localhost (htdocs) </li>
+     <li> Pindahkan semua file dan folder ke dalam folder Localhost (htdocs) </li>
      <li> Buka XAMPP </li>
      <li> Start Module Apache dan Module MySQL </li>
      <li> Pilih aksi "Admin" pada Module MySQL untuk import database perpustakaan terlebih dahulu </li>
@@ -22,13 +18,4 @@ Password : admin
      <li> Selanjutnya setting file koneksi.php yang terdapat di dalam folder Config </li>
      <li> Sesuaikan dengan setingan di localhost kalian masing masing </li>
      <li> Jika menurut kalian file koneksi.php sudah sesuai dengan setingan yang kalian gunakan, Selanjutnya kalian bisa langsung masuk ke Aplikasi nya </li>
-     <li> Semoga Bermanfaat </li>
-</ul>
-
-# Terima Kasih
-<ul>
-    <li> AdminLTE </li>
-    <li> PT. Pacifica Raya Technology </li>
-    <li> Stackoverflow </li>
-    <li> Google </li>
 </ul>

@@ -6,7 +6,7 @@ Password : admin
 # Cara Instalasi
 <ul>
      <li> Ekstrak arsip / file zip yang telah didownload </li>
-     <li> Buka folder "e-perpus-main" </li>
+     <li> Buka folder </li>
      <li> Pindahkan semua file dan folder ke dalam folder Localhost (htdocs) </li>
      <li> Buka XAMPP </li>
      <li> Start Module Apache dan Module MySQL </li>

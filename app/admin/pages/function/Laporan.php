@@ -15,7 +15,6 @@ if ($_GET['aksi'] == "tgl_pinjam") {
     echo "</head>";
     echo "<body onload='window.print()' style='font-family: Quicksand, sans-serif'>";
     echo "<img src='../../../../assets/dist/img/logo_app.png' style='height: 90px; width: 90px; margin-top: 10px; margin-left: 10px; margin-bottom: -50px;'>";
-    echo "<img src='../../../../assets/dist/img/LOGO-PERPUSNAS.png' style='display: block; margin-left: auto; width: 90px; margin-bottom: -70px; margin-top: -38px; margin-right: 5px;'>";
     echo "<h3 class='text-center' style='font-family: Quicksand, sans-serif; margin-top: -30px;'>.:: Laporan Perpustakaan ::.</h3>";
     $sql2 = mysqli_query($koneksi, "SELECT * FROM identitas");
     $row = mysqli_fetch_assoc($sql2);
@@ -68,7 +67,6 @@ if ($_GET['aksi'] == "tgl_pinjam") {
     echo "</head>";
     echo "<body onload='window.print()' style='font-family: Quicksand, sans-serif'>";
     echo "<img src='../../../../assets/dist/img/logo_app.png' style='height: 90px; width: 90px; margin-top: 10px; margin-left: 10px; margin-bottom: -50px;'>";
-    echo "<img src='../../../../assets/dist/img/LOGO-PERPUSNAS.png' style='display: block; margin-left: auto; width: 90px; margin-bottom: -70px; margin-top: -38px; margin-right: 5px;'>";
     echo "<h3 class='text-center' style='font-family: Quicksand, sans-serif; margin-top: -30px;'>.:: Laporan Perpustakaan ::.</h3>";
     $sql2 = mysqli_query($koneksi, "SELECT * FROM identitas");
     $row = mysqli_fetch_assoc($sql2);
@@ -121,7 +119,6 @@ if ($_GET['aksi'] == "tgl_pinjam") {
     echo "</head>";
     echo "<body onload='window.print()' style='font-family: Quicksand, sans-serif'>";
     echo "<img src='../../../../assets/dist/img/logo_app.png' style='height: 90px; width: 90px; margin-top: 10px; margin-left: 10px; margin-bottom: -50px;'>";
-    echo "<img src='../../../../assets/dist/img/LOGO-PERPUSNAS.png' style='display: block; margin-left: auto; width: 90px; margin-bottom: -70px; margin-top: -38px; margin-right: 5px;'>";
     echo "<h3 class='text-center' style='font-family: Quicksand, sans-serif; margin-top: -30px;'>.:: Laporan Perpustakaan ::.</h3>";
     $sql2 = mysqli_query($koneksi, "SELECT * FROM identitas");
     $row = mysqli_fetch_assoc($sql2);

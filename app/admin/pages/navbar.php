@@ -10,7 +10,7 @@
         $sql = mysqli_query($koneksi, "SELECT * FROM identitas");
         $row = mysqli_fetch_assoc($sql);
         ?>
-        <span class="logo-lg"><b>PERPUSTAKAAN</b> <i class="fa fa-book"></i></span>
+        <span class="logo-lg"><b>SIPerpus</b> <i class="fa fa-book"></i></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">

@@ -60,7 +60,6 @@
                     <li><a href="kategori-buku"><i class="fa fa-circle-o"></i> Kategori Buku</a></li>
                 </ul>
             </li>
-            <li><a href="laporan"><i class="fa fa-book"></i> <span>Laporan Perpustakaan</span></a></li>
             <li><a href="pesan"><i class="fa fa-envelope"></i> <span>Pesan</span>
                     <span class="pull-right-container" id="jumlahPesan">
                         <?php

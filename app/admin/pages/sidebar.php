@@ -43,7 +43,7 @@
                 <ul class="treeview-menu">
                     <li><a href="anggota"><i class="fa fa-circle-o"></i> Data Anggota</a></li>
                     <li><a href="penerbit"><i class="fa fa-circle-o"></i> Data Penerbit</a></li>
-                    <li><a href="administrator"><i class="fa fa-circle-o"></i> Administrator</a></li>
+                    <li><a href="administrator"><i class="fa fa-circle-o"></i> Data Administrator</a></li>
                     <li><a href="data-peminjaman"><i class="fa fa-circle-o"></i> Data Peminjaman</a></li>
                 </ul>
             </li>

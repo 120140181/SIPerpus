@@ -43,7 +43,7 @@
                 <ul class="treeview-menu">
                     <li><a href="anggota"><i class="fa fa-circle-o"></i> Data Anggota</a></li>
                     <li><a href="penerbit"><i class="fa fa-circle-o"></i> Data Penerbit</a></li>
-                    <li><a href="administrator"><i class="fa fa-circle-o"></i> Administrator</a></li>
+                    <li><a href="administrator"><i class="fa fa-circle-o"></i> Data Administrator</a></li>
                     <li><a href="data-peminjaman"><i class="fa fa-circle-o"></i> Data Peminjaman</a></li>
                 </ul>
             </li>
@@ -60,7 +60,6 @@
                     <li><a href="kategori-buku"><i class="fa fa-circle-o"></i> Kategori Buku</a></li>
                 </ul>
             </li>
-            <li><a href="laporan"><i class="fa fa-book"></i> <span>Laporan Perpustakaan</span></a></li>
             <li><a href="pesan"><i class="fa fa-envelope"></i> <span>Pesan</span>
                     <span class="pull-right-container" id="jumlahPesan">
                         <?php

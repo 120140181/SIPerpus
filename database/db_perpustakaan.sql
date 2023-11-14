@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 28 Okt 2023 pada 11.20
+-- Waktu pembuatan: 03 Nov 2023 pada 20.45
 -- Versi server: 10.4.28-MariaDB
--- Versi PHP: 8.1.17
+-- Versi PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -51,6 +51,23 @@ INSERT INTO `buku` (`id_buku`, `judul_buku`, `kategori_buku`, `penerbit_buku`, `
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `favorit`
+--
+
+CREATE TABLE `favorit` (
+  `id_buku` int(11) NOT NULL,
+  `judul_buku` varchar(125) NOT NULL,
+  `kategori_buku` varchar(125) NOT NULL,
+  `penerbit_buku` varchar(125) NOT NULL,
+  `pengarang` varchar(125) NOT NULL,
+  `tahun_terbit` varchar(125) NOT NULL,
+  `isbn` int(50) NOT NULL,
+  `jumlah_pinjam` varchar(125) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `identitas`
 --
 
@@ -87,7 +104,7 @@ CREATE TABLE `kategori` (
 --
 
 INSERT INTO `kategori` (`id_kategori`, `kode_kategori`, `nama_kategori`) VALUES
-(1, 'KT-001', 'Novel '),
+(1, 'KT-001', 'Novel'),
 (2, 'KT-002', 'Cergam'),
 (3, 'KT-003', 'Ensiklopedi'),
 (4, 'KT-004', 'Biografi'),
@@ -96,7 +113,9 @@ INSERT INTO `kategori` (`id_kategori`, `kode_kategori`, `nama_kategori`) VALUES
 (7, 'KT-007', 'Tafsir'),
 (8, 'KT-008', 'Panduan (how to)'),
 (9, 'KT-009', 'Majalah'),
-(10, 'KT-010', 'Antologi');
+(10, 'KT-010', 'Antologi'),
+(11, 'KT-011', 'Petualangan'),
+(12, 'KT-012', 'Lirik Lagu');
 
 -- --------------------------------------------------------
 
@@ -116,8 +135,14 @@ CREATE TABLE `pemberitahuan` (
 --
 
 INSERT INTO `pemberitahuan` (`id_pemberitahuan`, `isi_pemberitahuan`, `level_user`, `status`) VALUES
-(1, '<i class=\'fa fa-exchange\'></i> #Reza  Saputra Telah meminjam Buku', 'Admin', 'Belum dibaca'),
-(2, '<i class=\'fa fa-repeat\'></i> #Reza  Saputra Telah mengembalikan Buku', 'Admin', 'Belum dibaca');
+(1, '<i class=\'fa fa-exchange\'></i> #Reza  Saputra Telah meminjam Buku', 'Admin', 'Sudah dibaca'),
+(2, '<i class=\'fa fa-repeat\'></i> #Reza  Saputra Telah mengembalikan Buku', 'Admin', 'Sudah dibaca'),
+(3, '<i class=\'fa fa-exchange\'></i> #Fatkhan Aziez Telah meminjam Buku', 'Admin', 'Belum dibaca'),
+(4, '<i class=\'fa fa-repeat\'></i> #Fatkhan Aziez Telah mengembalikan Buku', 'Admin', 'Belum dibaca'),
+(5, '<i class=\'fa fa-repeat\'></i> #Fatkhan Aziez Telah mengembalikan Buku', 'Admin', 'Belum dibaca'),
+(6, '<i class=\'fa fa-exchange\'></i> #Fatkhan Aziez Telah meminjam Buku', 'Admin', 'Belum dibaca'),
+(7, '<i class=\'fa fa-repeat\'></i> #Fatkhan Aziez Telah mengembalikan Buku', 'Admin', 'Belum dibaca'),
+(8, '<i class=\'fa fa-repeat\'></i> #Fatkhan Aziez Telah mengembalikan Buku', 'Admin', 'Belum dibaca');
 
 -- --------------------------------------------------------
 
@@ -135,13 +160,6 @@ CREATE TABLE `peminjaman` (
   `kondisi_buku_saat_dikembalikan` varchar(125) NOT NULL,
   `denda` varchar(125) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data untuk tabel `peminjaman`
---
-
-INSERT INTO `peminjaman` (`id_peminjaman`, `nama_anggota`, `judul_buku`, `tanggal_peminjaman`, `tanggal_pengembalian`, `kondisi_buku_saat_dipinjam`, `kondisi_buku_saat_dikembalikan`, `denda`) VALUES
-(1, 'Reza  Saputra', 'Cantik Itu Luka', '08-08-2022', '08-08-2022', 'Baik', 'Baik', 'Tidak ada');
 
 -- --------------------------------------------------------
 
@@ -183,6 +201,13 @@ CREATE TABLE `pesan` (
   `tanggal_kirim` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data untuk tabel `pesan`
+--
+
+INSERT INTO `pesan` (`id_pesan`, `penerima`, `pengirim`, `judul_pesan`, `isi_pesan`, `status`, `tanggal_kirim`) VALUES
+(2, 'Administrator', 'vasko', 'hello', 'saya ingin meminjam buku', 'Sudah dibaca', '04-11-2023');
+
 -- --------------------------------------------------------
 
 --
@@ -209,8 +234,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `kode_user`, `nis`, `fullname`, `username`, `password`, `kelas`, `alamat`, `verif`, `role`, `join_date`, `terakhir_login`) VALUES
-(1, '-', '-', 'Administrator', 'admin', 'admin', '-', '-', 'Iya', 'Admin', '04-05-2021', '28-10-2023 ( 16:12:42 )'),
-(2, 'AP001', '100011', 'Reza  Saputra', 'reza', 'Reza', 'X - IPA 1', 'Desa Sambiroto, Kecamatan Tayu, Kabupatem Pati', 'Tidak', 'Anggota', '08-08-2022', '28-10-2023 ( 16:15:16 )');
+(1, '-', '-', 'Administrator', 'admin', 'admin', '-', '-', 'Iya', 'Admin', '04-05-2021', '04-11-2023 ( 01:50:55 )'),
+(2, 'AP001', '99999999', 'Fatkhan Aziez', 'fatkhan', '123', 'X - IPA 1', 'Antasari, Bandar Lampung', 'Tidak', 'Anggota', '08-08-2022', '04-11-2023 ( 01:30:07 )'),
+(4, '-', '-', 'Administrator 2', 'admin2', 'admin', '-', '-', 'Iya', 'Admin', '03-11-2023', ''),
+(5, 'AP002', '', 'vasko', 'vasko', '123', '', '', 'Tidak', 'Anggota', '03-11-2023', '04-11-2023 ( 01:40:08 )');
 
 --
 -- Indexes for dumped tables
@@ -220,6 +247,12 @@ INSERT INTO `user` (`id_user`, `kode_user`, `nis`, `fullname`, `username`, `pass
 -- Indeks untuk tabel `buku`
 --
 ALTER TABLE `buku`
+  ADD PRIMARY KEY (`id_buku`);
+
+--
+-- Indeks untuk tabel `favorit`
+--
+ALTER TABLE `favorit`
   ADD PRIMARY KEY (`id_buku`);
 
 --
@@ -275,6 +308,12 @@ ALTER TABLE `buku`
   MODIFY `id_buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT untuk tabel `favorit`
+--
+ALTER TABLE `favorit`
+  MODIFY `id_buku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT untuk tabel `identitas`
 --
 ALTER TABLE `identitas`
@@ -284,19 +323,19 @@ ALTER TABLE `identitas`
 -- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `pemberitahuan`
 --
 ALTER TABLE `pemberitahuan`
-  MODIFY `id_pemberitahuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pemberitahuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `peminjaman`
 --
 ALTER TABLE `peminjaman`
-  MODIFY `id_peminjaman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_peminjaman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `penerbit`
@@ -308,13 +347,13 @@ ALTER TABLE `penerbit`
 -- AUTO_INCREMENT untuk tabel `pesan`
 --
 ALTER TABLE `pesan`
-  MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
